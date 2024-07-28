@@ -1,3 +1,0 @@
-{
-  "url": "https://anatoly-karpovich.github.io/demo-login-form/"
-}
