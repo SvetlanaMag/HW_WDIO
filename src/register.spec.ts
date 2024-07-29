@@ -42,21 +42,21 @@ const credsCheckUsernameField = [
 
 const credsCheckPasswordField = [
     {
-        checkName: 'empty username & valid password',
+        checkName: 'valid username & empty password',
         username: 'John Doe',
         password: '',
         expectedNotification: 'Password is required',
         expectedNotificationLogin: 'Password is required'
     },
     {
-        checkName: 'username 2 characters & valid password',
+        checkName: 'valid username & password 7 characters',
         username: 'John Doe',
         password: 'SecretP',
         expectedNotification: 'Password should contain at least 8 characters',
         expectedNotificationLogin: 'Invalid credentials'
     },
     {
-        checkName: 'username with prefix/postfix spaces & valid password',
+        checkName: 'valid username & password without charecter in lower case',
         username: 'John Doe',
         password: 'secretpassword',
         expectedNotification: 'Password should contain at least 1 character in lower case',
