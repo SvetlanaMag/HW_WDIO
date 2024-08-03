@@ -30,7 +30,7 @@ export const config: Options.Testrunner = {
     // of the config file unless it's absolute.
     //
     specs: [
-        "src/register.spec.ts",
+        "src/HW18/*.spec.ts",
     ],
     // Patterns to exclude.
     exclude: [
