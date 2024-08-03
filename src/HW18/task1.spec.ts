@@ -22,7 +22,7 @@ async function waitForElementWithText (selector: string, text: string, timeout: 
         },
         {
             timeout: timeout,
-            timeoutMsg: `Selector ${selector} wasn't found or text doesn't match ${text}`
+            timeoutMsg: `Element ${selector} wasn't found or text doesn't match ${text}`
         }
     )
 }
