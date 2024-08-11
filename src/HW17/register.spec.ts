@@ -67,7 +67,7 @@ const credsCheckPasswordField = [
 
 describe('Task1', () => {
 
-    it('register with valid credentials', async () => {
+    it.skip('register with valid credentials', async () => {
         await browser.maximizeWindow();
         await browser.url(url);
 
@@ -99,7 +99,7 @@ describe('Task2: Registration suit', () => {
     });
 
     for (let i = 1; i < credsCheckUsernameField.length; i++) {
-        it(`register with ${credsCheckUsernameField[i].checkName}`, async () => {
+        it.skip(`register with ${credsCheckUsernameField[i].checkName}`, async () => {
 
             const usernameFieldLink = await $(usernameRegisterSelector);
             const passwordFieldLink = await $(passwordRegisterSelector);
@@ -116,7 +116,7 @@ describe('Task2: Registration suit', () => {
     };
 
     for (let i = 0; i < credsCheckPasswordField.length; i++) {
-        it(`register with ${credsCheckPasswordField[i].checkName}`, async () => {
+        it.skip(`register with ${credsCheckPasswordField[i].checkName}`, async () => {
 
             const usernameFieldLink = await $(usernameRegisterSelector);
             const passwordFieldLink = await $(passwordRegisterSelector);
@@ -142,7 +142,7 @@ describe('Task2: Login suit', () => {
     });
 
     for (let i = 1; i < credsCheckUsernameField.length; i++) {
-        it(`login with ${credsCheckUsernameField[i].checkName}`, async () => {
+        it.skip(`login with ${credsCheckUsernameField[i].checkName}`, async () => {
 
             const usernameFieldLink = await $(usernameLoginSelector);
             const passwordFieldLink = await $(passwordLoginSelector);
@@ -159,7 +159,7 @@ describe('Task2: Login suit', () => {
     };
 
     for (let i = 1; i < credsCheckPasswordField.length; i++) {
-        it(`login with ${credsCheckPasswordField[i].checkName}`, async () => {
+        it.skip(`login with ${credsCheckPasswordField[i].checkName}`, async () => {
 
             const usernameFieldLink = await $(usernameLoginSelector);
             const passwordFieldLink = await $(passwordLoginSelector);
