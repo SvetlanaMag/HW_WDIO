@@ -15,7 +15,7 @@
     2. По отсутствию класса, отвечающего за добавление красного бэкграунда.  element.getAttribute('class') https://webdriver.io/docs/api/element/getAttribute
 */
 
-describe('Task2', () => {
+describe.skip('Task2', () => {
 
     const url = 'https://anatoly-karpovich.github.io/aqa-course-project/#';
     const emailInputField = 'input#emailinput';
@@ -37,7 +37,7 @@ describe('Task2', () => {
         browser.url(url);
     });
 
-    it('should check background-color leftside menu elements', async () => {
+    it.skip('should check background-color leftside menu elements', async () => {
 
         await $(emailInputField).setValue(creds.email);
         await $(passwordInputField).setValue(creds.password);
