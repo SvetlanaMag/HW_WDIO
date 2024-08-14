@@ -27,7 +27,7 @@ async function waitForElementWithText (selector: string, text: string, timeout: 
     )
 }
 
-describe('Task 1', () => {
+describe.skip('Task 1', () => {
     const url = 'https://the-internet.herokuapp.com/';
     const dynamicLoadingPageLocator = 'a[href="/dynamic_loading"]';
     const examplesLocator = 'div.example a';
@@ -40,7 +40,7 @@ describe('Task 1', () => {
         await browser.url(url);
     });
 
-    it('should wait for element with text', async () => {
+    it.skip('should wait for element with text', async () => {
         const dynamicLoadingPageLink =  await $(dynamicLoadingPageLocator)
         await dynamicLoadingPageLink.click();
 

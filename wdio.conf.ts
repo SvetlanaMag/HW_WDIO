@@ -1,4 +1,6 @@
-import type { Options } from '@wdio/types'
+import type { Options } from '@wdio/types';
+import * as dotenv from 'dotenv';
+
 export const config: Options.Testrunner = {
     //
     // ====================
@@ -30,7 +32,7 @@ export const config: Options.Testrunner = {
     // of the config file unless it's absolute.
     //
     specs: [
-        "src/HW18/*.spec.ts",
+        "src/**/**/*.spec.ts",
     ],
     // Patterns to exclude.
     exclude: [
@@ -58,9 +60,14 @@ export const config: Options.Testrunner = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        browserName: 'chrome'
-    }],
+    capabilities: [
+        {
+          browserName: 'chrome',
+          'goog:chromeOptions': {
+            args: ['--disable-search-engine-choice-screen']
+          }
+        }
+      ],
 
     //
     // ===================
@@ -193,8 +200,9 @@ export const config: Options.Testrunner = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: async function (capabilities, specs) {
+        await browser.maximizeWindow();
+      },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name
