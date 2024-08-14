@@ -1,12 +1,15 @@
 import { AddNewProductPage } from '../../pages/products/addNewProduct.page.js';
 import { ModalWindowPage } from '../../pages/products/modalWindow.page.js';
 import { ProductsPage } from '../../pages/products/products.page.js';
+import { SalesPortalService } from '../salesPortal.service.js';
+import { createProduct } from "../../../data/textNotification.js";
 
 export class ProductsListService {
   constructor(
     private productsPage = new ProductsPage(),
     private addNewProductPage = new AddNewProductPage(),
-    private modalWindowPage = new ModalWindowPage()
+    private modalWindowPage = new ModalWindowPage(),
+    private salesPortalService = new SalesPortalService()
   ) {}
 
   async openAddNewProductPage() {
@@ -25,4 +28,9 @@ export class ProductsListService {
     await this.productsPage.waitForSpinnerToHide();
     await this.modalWindowPage.waitForOpened();
   }
+
+  async checkNotificationCreateProduct() {
+    await this.salesPortalService.checkNotificationText(createProduct)
+  }
+
 }

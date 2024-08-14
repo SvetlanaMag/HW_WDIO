@@ -1,16 +1,15 @@
 import { SalesPortalPage } from "../pages/salesPortal.page.js";
-//import { ICredentials } from "../../data/types/creds.types.js";
-
+import { MENUITEM } from "../../data/types/leftSideMenuItems.types.js";
 
 
 export class LeftSideMenu extends SalesPortalPage{
     readonly uniqueElement = 'span.fs-4'
 
     private readonly dropdownTitle = 'a#dropdownUser1';
-    private readonly productsLeftsideMenu = '[onclick="sideMenuClickHandler(\'Products\');"]';
+    private readonly leftsideMenuItem = (itemName: MENUITEM) => `//a[contains(@onclick, "sideMenuClickHandler('${itemName}');")]`;
 
-    async clickOnProductsLeftsideMenu () {
-        await this.click(this.productsLeftsideMenu)
+    async clickOnMenuItem (itemName: MENUITEM) {
+        await this.click(this.leftsideMenuItem(itemName))
     }
 
     async getUsername () {

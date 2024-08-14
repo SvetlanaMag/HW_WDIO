@@ -2,13 +2,12 @@ import { LeftSideMenu } from "../pages/leftSideMenu.page.js";
 import { SignInPage } from "../pages/signIn.page.js";
 import { ICredentials } from "../../data/types/creds.types.js";
 import { ADMIN_PASSWORD, ADMIN_EMAIL } from "../../data/credentials.js";
-//import {  } from "../../data/credentials.js"
-
+import { HomePage } from "../pages/home.page.js";
 
 export class SignInService {
     constructor(
         protected signInPage = new SignInPage(),
-        //private homePage = new HomePage(),
+        private homePage = new HomePage(),
         protected leftSideMenu = new LeftSideMenu(),
     ) {}
 
@@ -21,7 +20,7 @@ export class SignInService {
         await this.signInPage.clickSubmitButton();
         await this.signInPage.waitForSpinnerToHide();
         await this.leftSideMenu.waitForOpened();
-        //await this.homePage.waitForOpened();
+        await this.homePage.waitForOpened();
     }
 
     async loginAsAdmin() {
