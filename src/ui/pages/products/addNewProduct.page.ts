@@ -1,3 +1,4 @@
+import { INPUTFIELD } from "../../../data/textNotification.js";
 import { IProduct } from "../../../data/types/product.types.js";
 import { SalesPortalPage } from "../salesPortal.page.js";
 
@@ -10,7 +11,8 @@ export class AddNewProductPage extends SalesPortalPage{
     private readonly 'Amount input' = '#inputAmount';
     private readonly 'Notes textarea' = '#textareaNotes';
     private readonly 'Save new product button' = 'button#save-new-product';
-
+    private readonly errorInput = (field: INPUTFIELD) => `#error-input${field}`;
+   
     async fillInputs(newProduct: Partial<IProduct>) {
         newProduct.name && (await this.setValue(this['Name input'], newProduct.name));
         newProduct.manufacturer && (await this.selectDropdownValue(this['Manufacturer dropdown'], newProduct.manufacturer));
@@ -22,4 +24,14 @@ export class AddNewProductPage extends SalesPortalPage{
     async clickOnSaveButton() {
         await this.click(this['Save new product button']);
     }
+
+    async getErrorMessage(field: INPUTFIELD) {
+        return await this.getText(this.errorInput(field));
+    }
+
+    async getOnSaveButton() {
+        const button = $(this['Save new product button'])
+       return button;
+    }
+
 }

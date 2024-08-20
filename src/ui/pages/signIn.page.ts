@@ -2,6 +2,7 @@ import { ICredentials } from "../../data/types/creds.types.js";
 import { SalesPortalPage } from "./salesPortal.page.js";
 
 export class SignInPage extends SalesPortalPage{
+        
     uniqueElement = '//form[.//input[@id="emailinput"]]';
 
     private readonly 'Email Input' = 'input#emailinput';

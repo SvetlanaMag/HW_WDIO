@@ -1,7 +1,7 @@
 import { LeftSideMenu } from "../pages/leftSideMenu.page.js";
 import { SignInPage } from "../pages/signIn.page.js";
 import { ICredentials } from "../../data/types/creds.types.js";
-import { ADMIN_PASSWORD, ADMIN_EMAIL } from "../../data/credentials.js";
+import { ADMIN_PASSWORD, ADMIN_EMAIL } from '../../config/environment.js';
 import { HomePage } from "../pages/home.page.js";
 
 export class SignInService {
@@ -31,5 +31,9 @@ export class SignInService {
         const login = ADMIN_USERNAME
         await expect(await this.leftSideMenu.getUsername()).toEqual(login)
     }
+
+    async signOut() {
+        await browser.deleteCookies(['Authorization']);
+      }
 
 }
