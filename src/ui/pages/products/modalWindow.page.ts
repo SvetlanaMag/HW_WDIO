@@ -25,7 +25,8 @@ export class ModalWindowPage extends SalesPortalPage {
     }
 
     async closeDetailsWindow() {
-        if(this.closeDetailsWindowButton) {
+        const closeButton = await this.closeDetailsWindowButton
+        if(closeButton) {
             await this.click(this.closeDetailsWindowButton)
         } else {
             await this.click(this.cancelDetailsWindowButton)
