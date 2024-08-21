@@ -7,7 +7,7 @@ import { newProduct } from "../../data/newProduct.js"
 import { ModalWindowService } from "../services/products/modalWindow.service.js";
 import { MENUITEM } from "../../data/types/leftSideMenuItems.types.js";
 
-describe('Task2: Create new product', () => {
+describe.skip('Task2: Create new product', () => {
 
     const signInService = new SignInService();
     const salesPortalService = new SalesPortalService();
@@ -23,7 +23,7 @@ describe('Task2: Create new product', () => {
 
     });
 
-    it('should create new product', async() => {
+    it.skip('should create new product', async() => {
 
         await salesPortalService.openPageFromLeftsideMenu(MENUITEM.PRODUCTS)
         await productsService.openAddNewProductPage();

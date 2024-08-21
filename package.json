@@ -2,6 +2,7 @@
   "name": "HW_WDIO",
   "type": "module",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/dotenv": "^8.2.0",
     "@wdio/allure-reporter": "^8.39.0",
     "@wdio/cli": "^8.39.1",

@@ -6,6 +6,8 @@ export class ModalWindowPage extends SalesPortalPage {
 
     private readonly 'Modal value by field name' = (field: DETAILSFIELDS) => `//div[./strong[.='${field}:']]/div`;
     private readonly closeDetailsWindowButton = 'div.modal-header button.btn-close';
+    private readonly cancelDetailsWindowButton = '.modal-footer .btn-secondary';
+    private readonly submitDeleteButton = '.modal-dialog button[type="submit"]';
 
     async getDetailsTitle() {
         return await this.getText(this.uniqueElement)
@@ -23,6 +25,10 @@ export class ModalWindowPage extends SalesPortalPage {
     }
 
     async closeDetailsWindow() {
-        await this.click(this.closeDetailsWindowButton)
+        await this.click(this.cancelDetailsWindowButton)
+    }
+    
+    async clickOnSubmitDeleteButton() {
+        await this.click(this.submitDeleteButton)
     }
 }

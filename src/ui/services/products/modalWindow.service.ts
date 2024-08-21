@@ -8,7 +8,6 @@ export class ModalWindowService {
         private productsPage = new ProductsPage(),
     ) {}
 
-
     async openDetailsWindow(newProduct: IProduct) {
         await this.productsPage.clickOnDetailsButton(newProduct.name);
         await this.productsPage.waitForSpinnerToHide();
@@ -19,6 +18,14 @@ export class ModalWindowService {
     async checkDetailsWindowData(newProduct: IProduct) {
         const receivedProduct = await this.modalWindowPage.getDetailsData()
         await expect (receivedProduct).toMatchObject({...newProduct})
+        await this.modalWindowPage.closeDetailsWindow()
+    }
+
+    async deleteProduct(newProduct: IProduct) {
+        await this.productsPage.clickOnDeleteButton(newProduct.name);
+        await this.productsPage.waitForSpinnerToHide();
+        await this.modalWindowPage.waitForOpened();
+        await this.modalWindowPage.clickOnSubmitDeleteButton();
     }
  
 }
