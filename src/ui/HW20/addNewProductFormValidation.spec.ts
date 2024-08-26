@@ -36,11 +36,12 @@ describe('Validation form', () => {
             await productsService.deleteCreatedProduct(newProduct);
         });
 
-        it('create new product with data minimum values', async () => {
+        it('Should successfully create new product with minimum input values', async () => {
             newProduct = generateNewProduct({
                 name: faker.string.alphanumeric(3),
                 price: 1,
                 amount: 1,
+                notes: '-'
             });
             await addNewProductService.create(newProduct);
             await productsService.checkNotificationCreateProduct();
@@ -52,7 +53,7 @@ describe('Validation form', () => {
 
 //При длинном названии продукта кнопка "Закрыть" улетает за границу модального окна
 //Добавила клик на кнопку Cancel
-        it('create new product with data maximum values', async () => {
+        it('Should successfully create new product with maximum input values', async () => {
             newProduct = generateNewProduct({
                 name: faker.string.alphanumeric(40),
                 price: 99999,
@@ -68,7 +69,7 @@ describe('Validation form', () => {
 
     context('Negative cases', () => {
 
-        it('validate name field, 2 characters', async () => {
+        it('Should validate name field with input value 2 characters', async () => {
             const newProduct = generateNewProduct({
                 name: faker.string.alphanumeric(2),
             });
@@ -78,7 +79,7 @@ describe('Validation form', () => {
             await addNewProductService.checkSaveNewProductButtonIsDisabled()
         });
 
-        it('validate amount field, 1000 items', async () => {
+        it('Should validate amount field with input value 1000', async () => {
             const newProduct = generateNewProduct({
                 amount: 1000,
             });
@@ -89,7 +90,7 @@ describe('Validation form', () => {
         });
 
 // При заполнении поля Notes кнопка Сохранить становится кликабельной.
-        it('validate pricet field, 100000 price', async () => {
+        it('Should validate price field with input value 100000', async () => {
             const newProduct = generateNewProduct({
                 price: 100000,
             });

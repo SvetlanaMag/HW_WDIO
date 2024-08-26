@@ -5,6 +5,7 @@ import { SalesPortalService } from '../salesPortal.service.js';
 import { createProduct, deleteProduct } from "../../../data/textNotification.js";
 import { IProduct } from '../../../data/types/product.types.js';
 import { ModalWindowService } from './modalWindow.service.js';
+import { logStep } from '../../../utils/report/decorator.js';
 
 export class ProductsListService {
   constructor(
@@ -15,6 +16,7 @@ export class ProductsListService {
     private modalWindowService = new ModalWindowService()
   ) {}
 
+  @logStep('Open Add New Product page')
   async openAddNewProductPage() {
     await this.productsPage.clickOnAddNewProduct();
     await this.productsPage.waitForSpinnerToHide();

@@ -29,8 +29,8 @@ export class AddNewProductPage extends SalesPortalPage{
         return await this.getText(this.errorInput(field));
     }
 
-    async getOnSaveButton() {
-        const button = $(this['Save new product button'])
+    async getSaveButton() {
+        const button = this.findElement(this['Save new product button'])
        return button;
     }
 
