@@ -2,7 +2,7 @@ import { SalesPortalService } from "../services/salesPortal.service.js";
 import { AddNewProductService } from "../services/products/addNewProduct.service.js"
 import { ProductsListService } from "../services/products/products.service.js";
 import { SignInService } from "../services/signIn.service.js";
-import { ADMIN_USERNAME } from "../../data/credentials.js";
+import { ADMIN_USERNAME } from "../../data/users/admin.data.js";
 import { newProduct } from "../../data/newProduct.js"
 import { ModalWindowService } from "../services/products/modalWindow.service.js";
 import { MENUITEM } from "../../data/types/leftSideMenuItems.types.js";

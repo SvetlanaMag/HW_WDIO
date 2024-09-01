@@ -1,6 +1,8 @@
 
-export const createProduct = 'Product was successfully created';
-export const deleteProduct = 'Product was successfully deleted';
+export enum INOTIFICATION {
+    CREATE = 'Product was successfully created',
+    DELETE = 'Product was successfully deleted'
+}
 
 export enum INPUTFIELD {
     NAME = 'Name',

@@ -7,7 +7,7 @@ import { SignInService } from "../services/signIn.service.js";
 import { generateNewProduct } from "../../data/newProduct.js";
 import { ModalWindowService } from "../services/products/modalWindow.service.js";
 import { IProduct } from "../../data/types/product.types.js";
-import { INPUTFIELD } from "../../data/textNotification.js";
+import { INOTIFICATION, INPUTFIELD } from "../../data/textNotification.js";
 
 
 describe('Validation form', () => {
@@ -44,7 +44,7 @@ describe('Validation form', () => {
                 notes: '-'
             });
             await addNewProductService.create(newProduct);
-            await productsService.checkNotificationCreateProduct();
+            await salesPortalService.checkNotificationText(INOTIFICATION.CREATE);
         
             await modalWindowService.openDetailsWindow(newProduct);
             await modalWindowService.checkDetailsWindowData(newProduct);
@@ -60,7 +60,7 @@ describe('Validation form', () => {
                 amount: 999,
             });
             await addNewProductService.create(newProduct);
-            await productsService.checkNotificationCreateProduct();
+            await salesPortalService.checkNotificationText(INOTIFICATION.CREATE);
         
             await modalWindowService.openDetailsWindow(newProduct);
             await modalWindowService.checkDetailsWindowData(newProduct);

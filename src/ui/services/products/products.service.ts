@@ -2,7 +2,7 @@ import { AddNewProductPage } from '../../pages/products/addNewProduct.page.js';
 import { ModalWindowPage } from '../../pages/products/modalWindow.page.js';
 import { ProductsPage } from '../../pages/products/products.page.js';
 import { SalesPortalService } from '../salesPortal.service.js';
-import { createProduct, deleteProduct } from "../../../data/textNotification.js";
+import { INOTIFICATION } from "../../../data/textNotification.js";
 import { IProduct } from '../../../data/types/product.types.js';
 import { ModalWindowService } from './modalWindow.service.js';
 import { logStep } from '../../../utils/report/decorator.js';
@@ -34,17 +34,9 @@ export class ProductsListService {
     await this.modalWindowPage.waitForOpened();
   }
 
-  async checkNotificationCreateProduct() {
-    await this.salesPortalService.checkNotificationText(createProduct)
-  }
-
-  async checkNotificationDeleteProduct() {
-    await this.salesPortalService.checkNotificationText(deleteProduct)
-  }
-
   async deleteCreatedProduct(productName: IProduct) {
     await this.modalWindowService.deleteProduct(productName);
-    await this.checkNotificationDeleteProduct()
+    await this.salesPortalService.checkNotificationText(INOTIFICATION.DELETE)
   }
 
 }

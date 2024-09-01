@@ -5,6 +5,7 @@ import { MENUITEM } from "../../data/types/leftSideMenuItems.types.js";
 import { HomePage } from "../pages/home.page.js";
 import { OrdersPage } from "../pages/orders.page.js";
 import { CustomersPage } from "../pages/customers.page.js";
+import { INOTIFICATION } from "../../data/textNotification.js";
 
 
 export class SalesPortalService extends SalesPortalPage {
@@ -21,7 +22,7 @@ export class SalesPortalService extends SalesPortalPage {
         super();
     }
 
-    async checkNotificationText(action: string) {
+    async checkNotificationText(action: INOTIFICATION) {
         expect(await this.getNotificationText()).toEqual(action)
         await this.closeNotificationWindow()
     }
