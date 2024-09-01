@@ -2,19 +2,28 @@
   "name": "HW_WDIO",
   "type": "module",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/dotenv": "^8.2.0",
+    "@types/rimraf": "^4.0.5",
     "@wdio/allure-reporter": "^8.39.0",
     "@wdio/cli": "^8.39.1",
     "@wdio/local-runner": "^8.39.1",
     "@wdio/mocha-framework": "^8.39.0",
     "@wdio/spec-reporter": "^8.39.0",
+    "allure-commandline": "^2.30.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
   "scripts": {
-    "test": "wdio run ./wdio.conf.ts"
+    "test": "wdio run ./wdio.conf.ts",
+    "test:ui:HW19_20": "npm run test -- --suite ui_HW19_HW20",
+    "test:ui:HW17": "npm run test -- --suite ui_HW17",
+    "test:ui:HW18": "npm run test -- --suite ui_HW18",
+    "report": "allure generate allure-results -o allure-report --clean",
+    "report-open": "npm run report && allure open allure-report"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "rimraf": "^6.0.1"
   }
 }

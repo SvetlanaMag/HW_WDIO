@@ -22,7 +22,9 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "experimentalDecorators": true,
     },
     "include": [
         "src",

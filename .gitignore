@@ -1,2 +1,4 @@
 node_modules
 allure-results
+.env
+.vscode
